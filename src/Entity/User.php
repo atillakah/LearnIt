@@ -68,6 +68,11 @@ class User implements UserInterface
      */
     private $lesson;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified = false;
+
     public function __construct()
     {
         $this->comment = new ArrayCollection();
@@ -256,6 +261,18 @@ class User implements UserInterface
                 $lesson->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
