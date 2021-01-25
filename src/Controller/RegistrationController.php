@@ -42,9 +42,8 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('plainPassword')->getData()
                 )
-
             )
-                ->setCreatedAt(new DateTime());
+            ->setCreatedAt(new DateTime());
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -68,10 +67,10 @@ class RegistrationController extends AbstractController
             );
         }
 
-            $user->setCreatedAt(new DateTime());
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+          //  $user->setCreatedAt(new DateTime());
+          //  $entityManager = $this->getDoctrine()->getManager();
+          //  $entityManager->persist($user);
+          //  $entityManager->flush();
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
