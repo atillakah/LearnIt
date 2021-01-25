@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use DateTime;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
 use App\Security\AppCustomAuthenticator;
@@ -41,7 +42,9 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('plainPassword')->getData()
                 )
-            );
+
+            )
+                ->setCreatedAt(new DateTime());
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -64,6 +67,11 @@ class RegistrationController extends AbstractController
                 'main' // firewall name in security.yaml
             );
         }
+
+            $user->setCreatedAt(new DateTime());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
