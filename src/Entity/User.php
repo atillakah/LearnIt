@@ -223,6 +223,13 @@ class User implements UserInterface
         return $this;
     }
 
+    public function __toString(){
+        // to show the name of the User in the select
+        return $this->firstname;
+        // to show the id of the User in the select
+        // return $this->id;
+    }
+
     public function removeComment(Comment $comment): self
     {
         if ($this->comment->removeElement($comment)) {
