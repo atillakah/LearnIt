@@ -51,6 +51,14 @@ class Tag
         return $this;
     }
 
+
+public function __toString(){
+        // to show the name of the TagName in the select
+        return $this->tagName;
+        // to show the id of the TagName in the select
+        // return $this->id;
+    }
+
     /**
      * @return Collection|Lesson[]
      */
