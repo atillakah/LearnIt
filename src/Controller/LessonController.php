@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Lesson;
+use DateTime;
 use App\Form\LessonType;
 use App\Repository\LessonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,6 +36,8 @@ class LessonController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $lesson->setCreatedAt(new DateTime());
+            // ici je dois mettre lesson->setUser(currentUser)
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($lesson);
             $entityManager->flush();

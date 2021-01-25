@@ -14,10 +14,10 @@ class LessonType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('createdAt')
-            ->add('updatedAt')
+            //->add('createdAt')
+            //->add('updatedAt')
             ->add('tag')
-            ->add('user')
+            ->add('user') // je devrai commenter cette ligne apres la fonction davant
         ;
     }
 
