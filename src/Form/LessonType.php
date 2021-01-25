@@ -17,7 +17,7 @@ class LessonType extends AbstractType
             //->add('createdAt')
             //->add('updatedAt')
             ->add('tag')
-            ->add('user') // je devrai commenter cette ligne apres la fonction davant
+           // ->add('user') je devrai commenter cette ligne apres la fonction davant
         ;
     }
 

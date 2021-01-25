@@ -37,7 +37,8 @@ class LessonController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $lesson->setCreatedAt(new DateTime());
-            // ici je dois mettre lesson->setUser(currentUser)
+            $user = $this->getUser();
+            $lesson->setUser($user); // je set le user;
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($lesson);
             $entityManager->flush();
