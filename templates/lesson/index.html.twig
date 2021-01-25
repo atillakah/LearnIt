@@ -13,6 +13,8 @@
                 <th>Content</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
+                <th>TagName</th>
+                <th>Made By</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,8 +24,19 @@
                 <td>{{ lesson.id }}</td>
                 <td>{{ lesson.title }}</td>
                 <td>{{ lesson.content }}</td>
+
                 <td>{{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                
+                
+                <td>
+               {%  for tag in lesson.tag   %} 
+               {{ tag.tagName }}
+                {% endfor  %}
+                </td>
+
+                <td>{{ lesson.user }}</td>
+
                 <td>
                     <a href="{{ path('lesson_show', {'id': lesson.id}) }}">show</a>
                     <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">edit</a>
