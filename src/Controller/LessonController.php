@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Lesson;
+use App\Entity\Comment;
+use App\Form\CommentType;
 use DateTime;
 use App\Form\LessonType;
 use App\Repository\LessonRepository;
@@ -35,6 +37,9 @@ class LessonController extends AbstractController
         $form = $this->createForm(LessonType::class, $lesson);
         $form->handleRequest($request);
 
+
+        $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $lesson->setCreatedAt(new DateTime());
             $user = $this->getUser();
@@ -53,12 +58,30 @@ class LessonController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="lesson_show", methods={"GET"})
+     * @Route("/{id}", name="lesson_show", methods={"GET", "POST"})
      */
-    public function show(Lesson $lesson): Response
+    public function show(Lesson $lesson, Request $request): Response
     {
+        
+        $comment = new Comment();
+        $commentForm = $this->createForm(CommentType::class, $comment);
+        $commentForm->handleRequest($request);
+
+            if ($commentForm->isSubmitted() && $commentForm->isValid()) {
+            $comment->setCreatedAt(new DateTime());
+            $user = $this->getUser();
+            $comment->setUser($user); // je set le user;
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('lesson_index');
+            }
+
+
         return $this->render('lesson/show.html.twig', [
             'lesson' => $lesson,
+            'commentForm' => $commentForm->createView(),
         ]);
     }
 

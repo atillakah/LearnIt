@@ -27,6 +27,11 @@
                 <th>UpdatedAt</th>
                 <td>{{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
+
+
+     {{ include('comment/_form.html.twig') }}
+
+
         </tbody>
     </table>
 
