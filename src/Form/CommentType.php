@@ -16,7 +16,7 @@ class CommentType extends AbstractType
             ->add('content')
             // ->add('createdAt')
             // ->add('updatedAt')
-            ->add('lesson')
+           // ->add('lesson')
            // ->add('user')
         ;
     }

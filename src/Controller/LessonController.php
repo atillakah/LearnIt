@@ -72,6 +72,7 @@ class LessonController extends AbstractController
             $comment->setCreatedAt(new DateTime());
             $user = $this->getUser();
             $comment->setUser($user); // je set le user;
+            $comment->setLesson($lesson);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
