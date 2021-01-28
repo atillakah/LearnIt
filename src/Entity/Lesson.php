@@ -45,7 +45,7 @@ class Lesson
     private $tag;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="lesson")
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="lesson", cascade={"remove"}, orphanRemoval=true)
      */
     private $comments;
 
