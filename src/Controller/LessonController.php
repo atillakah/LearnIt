@@ -8,6 +8,7 @@ use App\Form\CommentType;
 use DateTime;
 use App\Form\LessonType;
 use App\Repository\LessonRepository;
+use PhpParser\Builder\Class_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -78,9 +79,16 @@ class LessonController extends AbstractController
             return $this->redirectToRoute('lesson_index');
             }
 
+            $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy([
+                'lesson' => $lesson,
+            ],['createdAt' => 'desc']
+
+        );
+
 
         return $this->render('lesson/show.html.twig', [
             'lesson' => $lesson,
+            'comments' => $comments,
             'commentForm' => $commentForm->createView(),
         ]);
     }

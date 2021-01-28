@@ -28,12 +28,20 @@
                 <td>{{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
 
+        </tbody>
+    </table>
+
 
      {{ include('comment/_form.html.twig') }}
 
+     {% for comment in comments %}
+        {{comment.title}}
+        {{comment.content}}
+     {% endfor  %}
 
-        </tbody>
-    </table>
+
+
+
 
     <a href="{{ path('lesson_index') }}">back to list</a>
 
