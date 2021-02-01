@@ -38,7 +38,7 @@
 
      {% for comment in comments %}
         {{comment.title}}
-        {{comment.content}}
+        {{comment.content|striptags}}
      {% endfor  %}
 
 
