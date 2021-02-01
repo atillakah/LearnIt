@@ -15,7 +15,11 @@ class LessonType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content', CKEditorType::class)
+            ->add('content', CKEditorType::class, array(
+                'config' => array(
+                    'entities' => false
+                )
+            ))
             //->add('createdAt')
             //->add('updatedAt')
             ->add('tag')
