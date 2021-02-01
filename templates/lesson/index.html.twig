@@ -5,50 +5,28 @@
 {% block body %}
     <h1>Lesson index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>TagName</th>
-                <th>Made By</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <a href="{{ path('lesson_new') }}">Create new</a>
+
+       <tbody>
         {% for lesson in lessons %}
-            <tr>
-                <td>{{ lesson.id }}</td>
-                <td>{{ lesson.title }}</td>
-                <td>{{ lesson.content }}</td>
-
-                <td>{{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                
-                
-                <td>
-               {%  for tag in lesson.tag   %} 
-               {{ tag.tagName }}
-                {% endfor  %}
-                </td>
-
-                <td>{{ lesson.user }}</td>
-
-                <td>
-                    <a href="{{ path('lesson_show', {'id': lesson.id}) }}">show</a>
-                    <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header">
+                {% for tag in lesson.tag %}
+                    {{ tag.tagName}} 
+                 {% endfor %}
+                </div>
+                <div class="card-body">
+                <h4 class="card-title"> {{ lesson.title }} </h4>
+                 <p class="card-text"> {{ lesson.content|raw }}</p>
+                 <button type="button" class="btn btn-primary"><a href="{{ path('lesson_show', {'id': lesson.id})  }}">Show</a></button>
+                 <button type="button" class="btn btn-secondary"><a href="{{ path('lesson_edit', {'id': lesson.id})  }}">Edit</a></button>
+                {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}
+                {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}
+                {{ lesson.user }}
+            </div>
         {% else %}
-            <tr>
                 <td colspan="6">no records found</td>
-            </tr>
         {% endfor %}
         </tbody>
-    </table>
 
-    <a href="{{ path('lesson_new') }}">Create new</a>
 {% endblock %}
