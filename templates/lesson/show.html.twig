@@ -17,7 +17,9 @@
             </tr>
             <tr>
                 <th>Content</th>
-                <td>{{ lesson.content }}</td>
+                <td>
+                {{ lesson.content|raw }}
+                </td>
             </tr>
             <tr>
                 <th>CreatedAt</th>
