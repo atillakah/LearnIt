@@ -7,7 +7,6 @@
 
     <a href="{{ path('lesson_new') }}">Create new</a>
 
-       <tbody>
         {% for lesson in lessons %}
             <div class="card bg-light mb-3" style="max-width: 20rem;">
                 <div class="card-header">
@@ -23,10 +22,10 @@
                 {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}
                 {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}
                 {{ lesson.user }}
+                </div>
             </div>
         {% else %}
                 <td colspan="6">no records found</td>
         {% endfor %}
-        </tbody>
 
 {% endblock %}
