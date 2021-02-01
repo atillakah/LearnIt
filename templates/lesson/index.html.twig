@@ -16,12 +16,12 @@
                 </div>
                 <div class="card-body">
                 <h4 class="card-title"> {{ lesson.title }} </h4>
-                 <p class="card-text"> {{ lesson.content|raw }}</p>
+                 <p class="card-text"> {{ lesson.content|raw|u.truncate(20) }}</p>
                  <button type="button" class="btn btn-primary"><a href="{{ path('lesson_show', {'id': lesson.id})  }}">Show</a></button>
                  <button type="button" class="btn btn-secondary"><a href="{{ path('lesson_edit', {'id': lesson.id})  }}">Edit</a></button>
-                {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}
-                {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}
-                {{ lesson.user }}
+                <br> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}
+                <br>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}
+                <br>Par : {{ lesson.user }}
                 </div>
             </div>
         {% else %}
