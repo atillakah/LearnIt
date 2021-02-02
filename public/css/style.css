@@ -1,0 +1,8 @@
+.resetlink{
+    color: white;
+}
+
+.resetlink:hover{
+    text-decoration: none;
+    color: white;
+}
