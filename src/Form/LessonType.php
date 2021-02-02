@@ -15,6 +15,7 @@ class LessonType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('tag')
             ->add('content', CKEditorType::class, array(
                 'config' => array(
                     'entities' => false
@@ -22,7 +23,6 @@ class LessonType extends AbstractType
             ))
             //->add('createdAt')
             //->add('updatedAt')
-            ->add('tag')
            // ->add('user') je devrai commenter cette ligne apres la fonction davant
         ;
     }
