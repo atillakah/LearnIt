@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Lesson;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -35,7 +36,6 @@ class LessonRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Lesson
     {
@@ -47,4 +47,17 @@ class LessonRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function mylessons($value)
+    {
+        $user = new User();
+        $user->setId($value);
+
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.user = :val')
+            ->setParameter('val', $user)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

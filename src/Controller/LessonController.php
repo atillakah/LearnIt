@@ -29,6 +29,34 @@ class LessonController extends AbstractController
         ]);
     }
 
+
+
+
+
+
+    /**
+     * @Route("/mylessons", name="lesson_me", methods={"GET"})
+     */
+    public function mylessons(LessonRepository $lessonRepository): Response
+    {
+       $value = $this->getUser()->getId(); // je met dans $value lemail de lobjet user connectee actuellement
+        return $this->render('lesson/mylessons.html.twig', [
+            'lessons' => $lessonRepository->mylessons($value),
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * @Route("/new", name="lesson_new", methods={"GET","POST"})
      */
