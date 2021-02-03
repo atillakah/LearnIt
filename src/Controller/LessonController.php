@@ -39,7 +39,7 @@ class LessonController extends AbstractController
      */
     public function mylessons(LessonRepository $lessonRepository): Response
     {
-       $value = $this->getUser()->getId(); // je met dans $value lemail de lobjet user connectee actuellement
+       $value = $this->getUser()->getId(); // je met dans $value l'id de luser connected
         return $this->render('lesson/mylessons.html.twig', [
             'lessons' => $lessonRepository->mylessons($value),
         ]);

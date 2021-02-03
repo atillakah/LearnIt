@@ -50,12 +50,9 @@ class LessonRepository extends ServiceEntityRepository
 
     public function mylessons($value)
     {
-        $user = new User();
-        $user->setId($value);
-
         return $this->createQueryBuilder('l')
             ->andWhere('l.user = :val')
-            ->setParameter('val', $user)
+            ->setParameter('val', $value)
             ->getQuery()
             ->getResult()
         ;
