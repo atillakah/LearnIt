@@ -1,4 +1,29 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+<form>
+  <fieldset>
+    <legend>Ajouter son cours</legend>
+   
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Titre</label>
+
+    {{ form_widget(form.title) }}
+
+    </div>
+       <div class="form-group">
+      <label for="exampleSelect2">Selectionner les matières</label>
+
+    {{ form_widget(form.tag) }}
+
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea">contenu du cours</label>
+    {{ form_widget(form.content) }}
+    </div>
+     </div>
+   </form>
+
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
