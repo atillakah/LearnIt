@@ -18,7 +18,9 @@
                 <h4 class="card-title"> {{ lesson.title }} </h4>
                  <p class="card-text"> {{ lesson.content|striptags|u.truncate(300, '...') }}</p>
                  <button type="button" class="btn btn-primary"><a href="{{ path('lesson_show', {'id': lesson.id})  }}">En savoir plus</a></button>
-                 <button type="button" class="btn btn-secondary"><a href="{{ path('lesson_edit', {'id': lesson.id})  }}">Modifier</a></button>
+                 {% if app.user == lesson.user %}
+                    <button type="button" class="btn btn-secondary"><a href="{{ path('lesson_edit', {'id': lesson.id})  }}">Modifier</a></button>
+                 {% endif %}
                 <br> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}
                 <br>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}
                 <br>Par : {{ lesson.user }}
