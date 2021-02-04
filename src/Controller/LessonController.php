@@ -46,6 +46,18 @@ class LessonController extends AbstractController
     }
 
 
+    /**
+     * @Route("/category/{name}", name="bytag", methods={"GET"})
+     */
+    public function lessonbytag(Request $request, LessonRepository $lessonRepository): Response
+    {
+       $value = $request->get('name'); // cette valeur doit etre variable 
+        return $this->render('lesson/indexbytag.html.twig', [
+            'lessons' => $lessonRepository->findByTag($value),
+        ]); // il faut changer le nom de la vue et de la route 
+    }
+
+
 
 
 

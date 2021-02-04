@@ -57,4 +57,16 @@ class LessonRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+
+    public function findByTag($value)
+    {
+        return $this->createQueryBuilder('l')
+            ->leftJoin('l.tag', 't')
+            ->where('t.tagName = :tagName')
+            ->setParameter('tagName', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

@@ -5,7 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
           <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}"/>
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css">
         {% endblock %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -35,9 +35,9 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="werwer">Action</a>
+          <a class="dropdown-item" href="eee">Another action</a>
+          <a class="dropdown-item" href="werweeer">Something else here</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Separated link</a>
         </div>
@@ -57,7 +57,8 @@
   </div>
 </nav>
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
