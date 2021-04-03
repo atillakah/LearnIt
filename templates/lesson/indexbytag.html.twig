@@ -5,6 +5,7 @@
 {% block body %}
     <h1>Lesson index</h1>
 
+        <div class="box">
         {% for lesson in lessons %}
             <div class="card bg-light mb-3" style="max-width: 20rem;">
                 <div class="card-header">
@@ -27,6 +28,7 @@
         {% else %}
                 <td colspan="6">La matiere n'existe pas ou elle nas pas encore de cours</td>
         {% endfor %}
+        </div>
 
 {% endblock %}
 
