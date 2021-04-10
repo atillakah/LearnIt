@@ -34,13 +34,20 @@
     </table>
 
 
+<h3> Commentaires </h3>
+
      {{ include('comment/_form.html.twig') }}
 
+     <div class="box">
      {% for comment in comments %}
-        {{comment.title}}
-        {{comment.content|striptags}}
+<div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">{{comment.title}}</div>
+  <div class="card-body">
+    <p class="card-text">{{comment.content|striptags}}</p>
+  </div>
+</div>
      {% endfor  %}
-
+</div>
 
 
 

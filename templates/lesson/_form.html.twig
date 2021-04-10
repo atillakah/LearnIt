@@ -1,20 +1,18 @@
 {{ form_start(form) }}
 
 <form>
-  <fieldset>
-    <legend>Ajouter son cours</legend>
    
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Titre</label>
 
-    {{ form_widget(form.title) }}
+    {{ form_widget(form.title, {'attr': {'style': 'width: 200px'}}) }}
 
     </div>
        <div class="form-group">
       <label for="exampleSelect2">Selectionner les matières</label>
 
-    {{ form_widget(form.tag) }}
+    {{ form_widget(form.tag,  {'attr': {'style': 'width: 300px'}})  }}
 
       </select>
     </div>

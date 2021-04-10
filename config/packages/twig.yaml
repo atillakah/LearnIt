@@ -3,3 +3,5 @@ twig:
 
     globals:
         tagServices: '@App\Services\TagServices'
+
+    form_themes: ['bootstrap_4_layout.html.twig']
