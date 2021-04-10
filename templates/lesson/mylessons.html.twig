@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes lessons{% endblock %}
+{% block title %}Mes cours crees{% endblock %}
 
 {% block body %}
-    <h1>Lesson index</h1>
-
 
         <div class="box">
         {% for lesson in lessons %}
@@ -22,7 +20,7 @@
                 </div>
             </div>
         {% else %}
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucuns cours</td>
         {% endfor %}
         </div>
 
