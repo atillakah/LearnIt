@@ -1,7 +1,6 @@
 {{ form_start(commentForm) }}
 
 
-<form>
     <div class="form-group">
       <label for="exampleInputEmail1">Titre</label>
     {{ form_widget(commentForm.title,  {'attr': {'style': 'width: 200px'}} ) }}
@@ -12,6 +11,5 @@
     {{ form_widget(commentForm.content,  {'attr': {'style': 'width: 400px'}}) }}
     </div>
 
-    </form>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(commentForm) }}
