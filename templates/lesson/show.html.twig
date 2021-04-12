@@ -1,60 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cours{% endblock %}
+{% block title %}{{lesson.title}}{% endblock %}
 
 {% block body %}
-    <h1>Cours</h1>
 
-    <table class="table">
-        <tbody>
+    <h1 class="pt-3"><center>{{ lesson.title }}<center></h1>
+
+    <div class="container pt-4 pb-4"> {{lesson.content|raw}}
+
+    <table>
             <tr>
-                <th>Id</th>
-                <td>{{ lesson.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ lesson.title }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>
-                {{ lesson.content|raw }}
-                </td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
+                <th>Cree le : </th>
                 <td>{{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>UpdatedAt</th>
+                <th>Modifie le : </th>
                 <td>{{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
-
-        </tbody>
+            <tr>
+                <th>Cree par : </th>
+                <td>{{ lesson.user }}</td>
+            </tr>
     </table>
+    </div>
 
-
-<h3> Commentaires </h3>
-
+<div class="espacecomment" style="background: #2C3E50">
+    <div class="container">
+      <div class="text-white">
+        <h3 class="text-white pt-4"> Commentaires </h3>
      {{ include('comment/_form.html.twig') }}
+       </div>
+    </div>
 
      <div class="box">
      {% for comment in comments %}
-<div class="card border-secondary mb-3" style="max-width: 20rem;">
-  <div class="card-header">{{comment.title}}</div>
-  <div class="card-body">
-    <p class="card-text">{{comment.content|striptags}}</p>
-  </div>
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{comment.title}}</div>
+            <div class="card-body">
+                <p class="card-text">{{comment.content|striptags}}</p>
+    </div>
 </div>
      {% endfor  %}
+
+
 </div>
 
+    <a href="{{ path('lesson_index') }}">Retouner a la liste</a>
 
-
-
-    <a href="{{ path('lesson_index') }}">back to list</a>
-
-    <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">edit</a>
-
-    {{ include('lesson/_delete_form.html.twig') }}
+    {% if app.user == lesson.user %}
+        <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">editer</a>
+        {{ include('lesson/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}
