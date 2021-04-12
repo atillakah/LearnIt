@@ -4,9 +4,14 @@
 
 {% block body %}
 
-    <h1 class="pt-3"><center>{{ lesson.title }}<center></h1>
 
-    <div class="container pt-4 pb-4"> {{lesson.content|raw}}
+    <div class="container shadow bg-light mt-4 pb-4"> 
+    
+    <h1 class="pt-3 pb-3"><center>{{ lesson.title }}<center></h1>
+    
+    {{lesson.content|raw}}
+
+
 
     <table>
             <tr>
@@ -24,32 +29,55 @@
     </table>
     </div>
 
-<div class="espacecomment" style="background: #2C3E50">
-    <div class="container">
-      <div class="text-white">
-        <h3 class="text-white pt-4"> Commentaires </h3>
+<div class="container mb-4 mt-4">
+<div class="card mb-4 mt-4">
+    <div class="row mb-2 mt-2 ml-2 mr-2">
+        <div class="col-1"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+        <div class="col-10">
+            <div class="comment-box ml-2">
+                <h4>Add a comment</h4>
+                <div class="comment-area" rows="4">  
+                
      {{ include('comment/_form.html.twig') }}
-       </div>
-    </div>
-
-     <div class="box">
-     {% for comment in comments %}
-        <div class="card border-secondary mb-3" style="max-width: 20rem;">
-            <div class="card-header">{{comment.user}}</div>
-            <div> {{comment.createdAt|date("d/n/Y  H:i")}}</div>
-            <div class="card-body">
-                <p class="card-text">{{comment.content|striptags}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-     {% endfor  %}
-
-
 </div>
 
-    <a href="{{ path('lesson_index') }}">Retouner a la liste</a>
 
+<div class="container d-flex justify-content-center mt-100 mb-100 pt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Commentaire recents</h4>
+                    <h6 class="card-subtitle">Section des denriers commentaires des Utilisateurs</h6>
+                </div>
+
+               {% for comment in comments %} 
+                <div class="comment-widgets m-b-20">
+                    <div class="d-flex flex-row comment-row">
+                        <div class="p-2"><span class="round"><img src="https://i.imgur.com/uIgDDDd.jpg" alt="user" width="50"></span></div>
+                        <div class="comment-text w-100">
+                            <h5>{{comment.user}}</h5>
+                            <div class="comment-footer"> <span class="date">{{comment.createdAt|date("d/n/Y H:i")}}</span> <span class="label label-info">Pending</span> <span class="action-icons"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart"></i></a> </span> </div>
+                            <p class="m-b-5 m-t-10">{{comment.content|striptags}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+</div>
     {% if app.user == lesson.user %}
         <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">editer</a>
         {{ include('lesson/_delete_form.html.twig') }}
     {% endif %}
+
+
+    <a href="{{ path('lesson_index') }}">Retouner a la liste</a>
 {% endblock %}

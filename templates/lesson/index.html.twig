@@ -10,7 +10,7 @@
 
         <div class="box pt-4">
         {% for lesson in lessons %}
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="card bg-light mb-3 shadow" style="max-width: 20rem;">
                 <div class="card-header">
                 {% for tag in lesson.tag %}
                      <a class="badge badge-pill badge-secondary resetlink" href="{{path("bytag",{name: tag.tagName})}}">{{tag.tagName}}</a>
@@ -23,9 +23,9 @@
                  {% if app.user == lesson.user %}
                     <button type="button" class="btn btn-secondary"><a class="resetlink" href="{{ path('lesson_edit', {'id': lesson.id})  }}">Modifier</a></button>
                  {% endif %}
-                <br> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}
-                <br>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}
-                <br>Par : {{ lesson.user }}
+                <div class="pt-3"> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H') : '' }}</div>
+                <div>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H') : '' }}</div>
+                <div>Par : {{ lesson.user }}</div>
                 </div>
             </div>
         {% else %}
