@@ -35,7 +35,8 @@
      <div class="box">
      {% for comment in comments %}
         <div class="card border-secondary mb-3" style="max-width: 20rem;">
-            <div class="card-header">{{comment.title}}</div>
+            <div class="card-header">{{comment.user}}</div>
+            <div> {{comment.createdAt|date("d/n/Y  H:i")}}</div>
             <div class="card-body">
                 <p class="card-text">{{comment.content|striptags}}</p>
     </div>
