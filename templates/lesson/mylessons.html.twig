@@ -12,8 +12,8 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
                 <div class="card-header">
                     {% for tag in lesson.tag %}
-                    <span class="badge badge-pill badge-secondary">{{tag.tagName}}</span>
-                {% endfor %}
+                         <a class="badge badge-pill badge-secondary resetlink" href="{{path("bytag",{name: tag.tagName})}}">{{tag.tagName}}</a>
+                    {% endfor %}
                 </div>
                 <div class="card-body">
                 <h4 class="card-title"> {{ lesson.title }} </h4>
@@ -26,7 +26,10 @@
                 </div>
             </div>
         {% else %}
-                <td colspan="6">Aucuns cours</td>
+                <div>
+                    <div>Aucuns cours</div>
+                    <div>Cree ton premier cours <a href="{{path('lesson_new')}}">ici</a></div>
+                </div>
         {% endfor %}
         </div>
 

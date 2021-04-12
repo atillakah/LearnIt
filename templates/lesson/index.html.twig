@@ -13,7 +13,7 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
                 <div class="card-header">
                 {% for tag in lesson.tag %}
-                    <span class="badge badge-pill badge-secondary">{{tag.tagName}}</span>
+                     <a class="badge badge-pill badge-secondary resetlink" href="{{path("bytag",{name: tag.tagName})}}">{{tag.tagName}}</a>
                 {% endfor %}
                 </div>
                 <div class="card-body">
