@@ -7,7 +7,7 @@
 
         <div class="box pt-4">
         {% for lesson in lessons %}
-            <div class="card bg-light mb-3 shadow" style="max-width: 20rem;">
+            <div class="card bg-light mb-3 caard-1" style="max-width: 20rem;">
                 <div class="card-header">
                 {% for tag in lesson.tag %}
                     <a class="badge badge-pill badge-secondary resetlink" href="{{path("bytag",{name: tag.tagName})}}">{{tag.tagName}}</a>
