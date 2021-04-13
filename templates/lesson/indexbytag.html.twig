@@ -3,7 +3,8 @@
 {% block title %}Lesson index{% endblock %}
 
 {% block body %}
-    <h1>Lesson index</h1>
+
+    <h2 class="pt-4"><center>Cours de {{tagg}} </center></h2>
 
         <div class="box pt-4">
         {% for lesson in lessons %}
@@ -14,7 +15,7 @@
                 {% endfor %}
                 </div>
                 <div class="card-body">
-                <h4 class="card-title"> {{ lesson.title }} </h4>
+                <h4 class="card-title"><a class="resetlinktitle" href="{{path ('lesson_show', {'id': lesson.id}) }}">{{ lesson.title }}</a> </h4>
                  <p class="card-text"> {{ lesson.content|striptags|u.truncate(300, '...') }}</p>
                  <button type="button" class="btn btn-primary"><a class="resetlink" href="{{ path('lesson_show', {'id': lesson.id})  }}">En savoir plus</a></button>
                    {% if app.user == lesson.user %}

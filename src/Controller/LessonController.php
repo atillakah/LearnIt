@@ -8,6 +8,7 @@ use App\Form\CommentType;
 use DateTime;
 use App\Form\LessonType;
 use App\Repository\LessonRepository;
+use Doctrine\Common\Collections\Expr\Value;
 use PhpParser\Builder\Class_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -54,6 +55,7 @@ class LessonController extends AbstractController
        $value = $request->get('name'); // cette valeur doit etre variable 
         return $this->render('lesson/indexbytag.html.twig', [
             'lessons' => $lessonRepository->findByTag($value),
+            'tagg'=>$value,
         ]); // il faut changer le nom de la vue et de la route 
     }
 
