@@ -4,10 +4,39 @@
 
 {% block body %}
 
-    {{ include('lesson/_form.html.twig', {'button_label': 'Update'}) }}
+    {% if app.user == lesson.user %}
 
-    {{ include('lesson/_delete_form.html.twig') }}
+        {{ include('lesson/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a class="btn btn-primary" href="{{ path('lesson_index') }}">Retour a la liste</a>
+        {{ include('lesson/_delete_form.html.twig') }}
+
+        <a class="btn ml-4 mt-1 btn-primary" href="{{ path('lesson_index') }}">Retour a la liste</a>
+    
+    {% else %}
+
+        <div class="modal my-5 d-block" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title">Ce cours ne vous appartient pas</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+               <p>Vous ne pouvez pas editer un cours cree par un autre utilisateur</p>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-primary"><a class="resetlink" href="{{ path('lesson_new') }}">Creer mon cours</a></button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><a class="resetlink" href="{{path('lesson_index')}}">Retour</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      {% endif %}
+
+        
 
 {% endblock %}

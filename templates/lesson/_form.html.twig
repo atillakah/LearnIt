@@ -17,12 +17,12 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="exampleTextarea">contenu du cours</label>
+      <label for="exampleTextarea">Contenu du cours</label>
     {{ form_widget(form.content) }}
     </div>
      </div>
 
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-primary ml-4">{{ button_label|default('Sauvegarder') }}</button>
   </div>
 
 {{ form_end(form) }}
