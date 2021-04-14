@@ -23,8 +23,8 @@
                  {% if app.user == lesson.user %}
                     <button type="button" class="btn btn-secondary"><a class="resetlink" href="{{ path('lesson_edit', {'id': lesson.id})  }}">Modifier</a></button>
                  {% endif %}
-                <div class="pt-3"> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H') : '' }}</div>
-                <div>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H') : '' }}</div>
+                <div class="pt-3"> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i') : '' }}</div>
+                <div>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i') : '' }}</div>
                 <div>Par : {{ lesson.user }}</div>
                 </div>
             </div>

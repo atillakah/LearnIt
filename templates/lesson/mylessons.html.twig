@@ -20,8 +20,8 @@
                  <p class="card-text"> {{ lesson.content|striptags|u.truncate(300, '...') }}</p>
                  <button type="button" class="btn btn-primary "><a class="resetlink" href="{{ path('lesson_show', {'id': lesson.id})  }}">En savoir plus</a></button>
                  <button type="button" class="btn btn-secondary"><a class="resetlink" href="{{ path('lesson_edit', {'id': lesson.id})  }}">Modifier</a></button>
-                <div class="pt-3"> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}</div>
-                <div>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}</div>
+                <div class="pt-3"> Crée le : {{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i') : '' }}</div>
+                <div>Modifié le : {{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i') : '' }}</div>
                 <div>Par : {{ lesson.user }}</div>
                 </div>
             </div>
