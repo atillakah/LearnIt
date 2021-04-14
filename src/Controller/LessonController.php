@@ -128,7 +128,7 @@ class LessonController extends AbstractController
 
             $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy([
                 'lesson' => $lesson,
-            ],['createdAt' => 'asc']
+            ],['id' => 'DESC']
 
         );
 
