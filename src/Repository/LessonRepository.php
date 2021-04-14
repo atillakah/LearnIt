@@ -53,6 +53,7 @@ class LessonRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('l')
             ->andWhere('l.user = :val')
             ->setParameter('val', $value)
+            ->orderBy('l.id', 'DESC')
             ->getQuery()
             ->getResult()
         ;
@@ -65,6 +66,7 @@ class LessonRepository extends ServiceEntityRepository
             ->leftJoin('l.tag', 't')
             ->where('t.tagName = :tagName')
             ->setParameter('tagName', $value)
+            ->orderBy('l.id', 'DESC')
             ->getQuery()
             ->getResult()
         ;
