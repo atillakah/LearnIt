@@ -14,13 +14,14 @@ class LessonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('tag')
+            ->add('title',null, ['required' => true])
+            ->add('tag',null, ['required' => true])
             ->add('content', CKEditorType::class, array(
                 'config' => array(
                     'entities' => false
-                )
-            ))
+                ),
+            ),
+            )
             //->add('createdAt')
             //->add('updatedAt')
            // ->add('user') je devrai commenter cette ligne apres la fonction davant

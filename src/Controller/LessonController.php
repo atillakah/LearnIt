@@ -116,14 +116,14 @@ class LessonController extends AbstractController
             if ($commentForm->isSubmitted() && $commentForm->isValid()) {
             $comment->setCreatedAt(new DateTime());
             $user = $this->getUser();
-            $jojo = $request->get('id');
+            $rget = $request->get('id');
             $comment->setUser($user); // je set le user;
             $comment->setLesson($lesson);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            return $this->redirectToRoute('lesson_show', ['id' => $jojo]);
+            return $this->redirectToRoute('lesson_show', ['id' => $rget]);
             }
 
             $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy([
