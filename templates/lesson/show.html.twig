@@ -35,7 +35,7 @@
 <div class="container mb-4 mt-4">
 <div class="card mb-4 mt-4 shadow">
     <div class="row mb-2 mt-4 ml-2 mr-2">
-        <div class="col-1"> <img src="https://lh3.googleusercontent.com/proxy/5baCq0kHW5Rd-S6rcazKMtfuP2l4bgqRc1ytdWSTKprKjjgrwcYDFhWdcHKAlWN1F8MdzmWykzWeKLblpSX0Q199e-e0XgBETkyDpR-UK8BPHtRUIdODox1ZbvIQyyce11b4N_VUwPk" width="70" class="rounded-circle mt-2"> </div>
+        <div class="col-1"> <img src="https://loocaly.fr/storage/users/default.png" width="70" class="rounded-circle mt-2"> </div>
         <div class="col-10">
             <div class="comment-box ml-2">
                 <h4>Ajouter un commentaire</h4>
@@ -61,10 +61,10 @@
                {% for comment in comments %} 
                 <div class="comment-widgets m-b-20">
                     <div class="d-flex flex-row comment-row">
-                        <div class="p-2"><span class="round"><img src="https://lh3.googleusercontent.com/proxy/5baCq0kHW5Rd-S6rcazKMtfuP2l4bgqRc1ytdWSTKprKjjgrwcYDFhWdcHKAlWN1F8MdzmWykzWeKLblpSX0Q199e-e0XgBETkyDpR-UK8BPHtRUIdODox1ZbvIQyyce11b4N_VUwPk" alt="user" width="50"></span></div>
+                        <div class="p-2"><span class="round"><img src="https://loocaly.fr/storage/users/default.png" alt="user" width="50"></span></div>
                         <div class="comment-text w-100 pl-2 pt-1">
                             <h5>{{comment.user}}</h5>
-                            <div class="comment-footer"> <span class="date">{{comment.createdAt|date("d/n/Y H:i")}}</span> <span class="label label-info">Pending</span> <span class="action-icons"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart"></i></a> </span> </div>
+                            <div class="comment-footer"> <span class="date">{{comment.createdAt|date("d/n/Y H:i")}}</span> <span class="label label-info"></span> <span class="action-icons"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart"></i></a> </span> </div>
                             <p class="m-b-5 m-t-10">{{comment.content|striptags}}</p>
                         </div>
                     </div>

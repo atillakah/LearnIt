@@ -5,5 +5,10 @@
      <div class="form-group">
     {{ form_widget(commentForm.content,  {'attr': {'style': 'height: 150px; width: 500px;'}}) }}
     </div>
-    <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button>
+      {% if app.user %}
+         <button class="btn btn-primary">{{ button_label|default('Envoyer') }}</button>
+      {% else %}
+         <button type="button" class="btn btn-success"><a  class="resetlink" href="{{ path('app_login')}}">Se connecter</a></button>
+     {% endif %}
+
 {{ form_end(commentForm) }}
