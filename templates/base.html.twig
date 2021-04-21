@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{path("lesson_new")}}">Creer son cours
+        <a class="nav-link" href="{{path("lesson_new")}}">Créer son cours
           <span class="sr-only">(current)</span>
         </a>
       </li>
@@ -54,7 +54,7 @@
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
 
         {% if app.user  %}
-            <button class="btn btn-danger my-2 my-sm-0 ml-1"><a class="resetlink" href="{{path("app_logout")}}">Deconnexion</a></button>
+            <button class="btn btn-danger my-2 my-sm-0 ml-1"><a class="resetlink" href="{{path("app_logout")}}">Déconnexion</a></button>
         {% else %}
             <button class="btn btn-success my-2 my-sm-0 ml-1"><a class="resetlink" href="{{path("app_login")}}">Connexion</a></button>
         {% endif %}

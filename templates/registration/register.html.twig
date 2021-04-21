@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Creer son compte{% endblock %}
+{% block title %}Créer son compte{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
@@ -16,8 +16,8 @@
         <!-- For Demo Purpose -->
         <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
             <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
-            <h1>Cree son compte</h1>
-            <p class="font-italic text-muted mb-0">Creer votre compte est connectez vous pour profiter pleinement de Learnit.</p>
+            <h1>Créer son compte</h1>
+            <p class="font-italic text-muted mb-0">Créez votre compte et connectez vous pour profiter pleinement de Learnit.</p>
             <p class="font-italic text-muted">Snippet By <a href="https://bootstrapious.com" class="text-muted">
                 <u>Bootstrapious</u></a>
             </p>
@@ -131,7 +131,7 @@
 
                     <!-- Submit Button -->
                     <div class="form-group col-lg-12 mx-auto mb-0">
-                       <button type="submit" class="btn btn-primary btn-block py-2 font-weight-bold">Creer son compte</button>
+                       <button type="submit" class="btn btn-primary btn-block py-2 font-weight-bold">Créer son compte</button>
                          {{ form_end(registrationForm) }}
 
                     </div>
@@ -145,7 +145,7 @@
 
                                        <!-- Already Registered -->
                     <div class="text-center w-100">
-                        <p class="text-muted font-weight-bold">Deja un compte? <a href="{{path("app_login")}}" class="text-primary ml-2">Se connecter</a></p>
+                        <p class="text-muted font-weight-bold">Déjà un compte? <a href="{{path("app_login")}}" class="text-primary ml-2">Se connecter</a></p>
                     </div>
 
                 </div>
