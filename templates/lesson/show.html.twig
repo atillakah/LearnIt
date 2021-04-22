@@ -18,15 +18,15 @@
 
     <table>
             <tr>
-                <th class="pt-2">Cree le : </th>
+                <th class="pt-2">Crée le : </th>
                 <td class="pt-2">{{ lesson.createdAt ? lesson.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Modifie le : </th>
+                <th>Modifié le : </th>
                 <td>{{ lesson.updatedAt ? lesson.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Cree par : </th>
+                <th>Crée par : </th>
                 <td>{{ lesson.user }}</td>
             </tr>
     </table>
